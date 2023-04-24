@@ -152,6 +152,38 @@ document.addEventListener("DOMContentLoaded", function () {
     mode = "rad"; // switch to rad mode
   };
 
+  document.getElementById("Deg3").onclick = function () {
+    document.getElementById("Rad3").style.color = "grey";
+    document.getElementById("Deg3").style.color = "white";
+    console.log(Deg1.innerText);
+    display.value = Deg1.innerText;
+    mode = "deg"; // switch to degree mode
+  };
+
+  document.getElementById("Rad3").onclick = function () {
+    document.getElementById("Deg3").style.color = "grey";
+    document.getElementById("Rad3").style.color = "white";
+    console.log(Rad.innerText);
+    display.value = Rad.innerText;
+    mode = "rad"; // switch to rad mode
+  };
+
+  document.getElementById("Deg4").onclick = function () {
+    document.getElementById("Rad4").style.color = "grey";
+    document.getElementById("Deg4").style.color = "white";
+    console.log(Deg1.innerText);
+    display.value = Deg1.innerText;
+    mode = "deg"; // switch to degree mode
+  };
+
+  document.getElementById("Rad4").onclick = function () {
+    document.getElementById("Deg4").style.color = "grey";
+    document.getElementById("Rad4").style.color = "white";
+    console.log(Rad.innerText);
+    display.value = Rad.innerText;
+    mode = "rad"; // switch to rad mode
+  };
+
 
    //-----Functions--------//
 
