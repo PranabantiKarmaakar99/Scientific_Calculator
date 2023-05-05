@@ -62,49 +62,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    document.getElementById("Fx").onclick = function () {
-        document.getElementById("Numerical_buttons").style.display = "none";
-        document.getElementById("Scientific_buttons_smallscreen_on_Inv_click").style.display = "none";
-        document.getElementById("Scientific_buttons_smallscreen").style.display = "flex";
-    }
+    // document.getElementById("Fx").onclick = function () {
+    //     document.getElementById("Numerical_buttons").style.display = "none";
+    //     document.getElementById("Scientific_buttons_smallscreen_on_Inv_click").style.display = "none";
+    //     document.getElementById("Scientific_buttons_smallscreen").style.display = "flex";
+    // }
 
 
-    document.getElementById("123").onclick = function () {
+    // document.getElementById("123").onclick = function () {
 
-        document.getElementById("Scientific_buttons_smallscreen").style.display = "none";
-        document.getElementById("Scientific_buttons_smallscreen_on_Inv_click").style.display = "none";
-        document.getElementById("Numerical_buttons").style.display = "flex";
-    }
+    //     document.getElementById("Scientific_buttons_smallscreen").style.display = "none";
+    //     document.getElementById("Scientific_buttons_smallscreen_on_Inv_click").style.display = "none";
+    //     document.getElementById("Numerical_buttons").style.display = "flex";
+    // }
 
-    document.getElementById("Inv1").onclick = function () {
+    // document.getElementById("Inv1").onclick = function () {
 
-        document.getElementById("Scientific_buttons_smallscreen").style.display = "none";
-        document.getElementById("Scientific_buttons_smallscreen_on_Inv_click").style.display = "flex";
-    }
+    //     document.getElementById("Scientific_buttons_smallscreen").style.display = "none";
+    //     document.getElementById("Scientific_buttons_smallscreen_on_Inv_click").style.display = "flex";
+    // }
 
-    document.getElementById("Inv2").onclick = function () {
+    // document.getElementById("Inv2").onclick = function () {
 
 
-        document.getElementById("Scientific_buttons_smallscreen_on_Inv_click").style.display = "none";
-        document.getElementById("Scientific_buttons_smallscreen").style.display = "flex";
-    }
+    //     document.getElementById("Scientific_buttons_smallscreen_on_Inv_click").style.display = "none";
+    //     document.getElementById("Scientific_buttons_smallscreen").style.display = "flex";
+   // })
 
     document.getElementById("Inv3").onclick = function () {
 
         document.getElementById("Scientific_buttons_for_lg_screen").className = "row gx-1 d-lg-none d-none";
-        document.getElementById("Scientific_buttons_on_Inv_click_for_lg_screen").style.display = "flex";
+        document.getElementById("Scientific_buttons_on_Inv_click_for_lg_screen").style.display= "flex";
     }
 
     document.getElementById("Inv4").onclick = function () {
 
         document.getElementById("Scientific_buttons_on_Inv_click_for_lg_screen").style.display = "none";
-        document.getElementById("Scientific_buttons_for_lg_screen").className = "row gx-1 d-lg-flex d-none";
+        document.getElementById("Scientific_buttons_for_lg_screen").className = "row gx-1 d-flex";
     }
 
     document.getElementById("AC").onclick = function () {
 
-        document.getElementById("AC").className = "btn btn-light w-100 mt-2 border d-none";
-        document.getElementById("CE").className = "btn btn-light w-100 mt-2 border d-block";
+        document.getElementById("AC").style.display = "none";
+        document.getElementById("CE").style.display = "flex";
 
     }
 
@@ -112,58 +112,82 @@ document.addEventListener("DOMContentLoaded", function () {
     for (var i = 0; i < numElements.length; i++) {
         numElements[i].onclick = function () {
 
-            document.getElementById("AC").className = "btn btn-light w-100 mt-2 border d-none";
-            document.getElementById("CE").className = "btn btn-light w-100 mt-2 border d-flex";
+            document.getElementById("AC").style.display = "none";
+            document.getElementById("CE").style.display = "flex";
 
         }
     }
 
     document.getElementById("equals").onclick = function () {
-
-        document.getElementById("CE").className = "btn btn-light w-100 mt-2 border d-none";
-        document.getElementById("AC").className = "btn btn-light w-100 mt-2 border d-flex";
-
-    }
-
-    document.getElementById("Deg").onclick = function () {
-
-        document.getElementById("Rad").style.color = "grey";
-        document.getElementById("Deg").style.color = "white";
-        console.log(Deg.innerText);
-        display.value = Deg.innerText;
-        mode = "deg"; // switch to degree mode
+        
+        document.getElementById("CE").style.display = "none";
+        document.getElementById("AC").style.display = "flex";
 
     }
 
-    document.getElementById("Rad").onclick = function () {
 
-        document.getElementById("Deg").style.color = "grey";
-        document.getElementById("Rad").style.color = "white";
-        console.log(Rad.innerText);
-        display.value = Rad.innerText;
-        mode = "rad"; // switch to rad mode
 
-    }
+    // document.getElementById("toggleButton").onclick = function () {
 
-    document.getElementById("Deg1").onclick = function () {
+    //     if (mode="")
 
-        document.getElementById("Rad1").style.color = "grey";
-        document.getElementById("Deg1").style.color = "white";
-        console.log(Deg1.innerText);
-        display.value = Deg1.innerText;
-        mode = "deg"; // switch to degree mode
+    //     document.getElementById("Rad").style.color = "grey";
+    //     document.getElementById("Deg").style.color = "white";
+    //     console.log(Deg.innerText);
+    //     display.value = Deg.innerText;
+    //     mode = "deg"; // switch to degree mode
 
-    }
+    // }
 
-    document.getElementById("Rad1").onclick = function () {
 
-        document.getElementById("Deg1").style.color = "grey";
-        document.getElementById("Rad1").style.color = "white";
-        console.log(Rad.innerText);
-        display.value = Rad.innerText;
-        mode = "rad"; // switch to rad mode
+    document.getElementById("toggleButton").onclick = function() {
+      
+        if (mode === "deg") {
+          
+          document.getElementById("Rad").style.color = "white";
+          document.getElementById("Deg").style.color = "grey";
+          mode = "rad";
+          
+        } else {
+            
+          document.getElementById("Rad").style.color = "grey";
+          document.getElementById("Deg").style.color = "white";
+          console.log(Deg.innerText);
+          display.value = Deg.innerText;
+          mode = "deg";
+          
+        }
+      };
 
-    }
+    // document.getElementById("Rad").onclick = function () {
+
+    //     document.getElementById("Deg").style.color = "grey";
+    //     document.getElementById("Rad").style.color = "white";
+    //     console.log(Rad.innerText);
+    //     display.value = Rad.innerText;
+    //     mode = "rad"; // switch to rad mode
+
+    // }
+
+    // document.getElementById("Deg1").onclick = function () {
+
+    //     document.getElementById("Rad1").style.color = "grey";
+    //     document.getElementById("Deg1").style.color = "white";
+    //     console.log(Deg1.innerText);
+    //     display.value = Deg1.innerText;
+    //     mode = "deg"; // switch to degree mode
+
+    // }
+
+    // document.getElementById("Rad1").onclick = function () {
+
+    //     document.getElementById("Deg1").style.color = "grey";
+    //     document.getElementById("Rad1").style.color = "white";
+    //     console.log(Rad.innerText);
+    //     display.value = Rad.innerText;
+    //     mode = "rad"; // switch to rad mode
+
+    // }
 
 
     function factorial(n) {
@@ -212,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function evaluateResult() {
 
 
-        if (mode === "deg" && currentValue.length >= 6 && !currentValue.includes("e").toUppercase()) {
+        if (mode === "deg" && currentValue.length >= 6 ) {
 
 
             const [func2, secondValue] = currentValue.split("(");
@@ -284,7 +308,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .replace("sin", "Math.sin")
                 .replace("cos", "Math.cos")
                 .replace("tan", "Math.tan")
-                .replace("pi", "Math.PI")
+                .replace("π", "Math.PI")
                 .replace("ln", "Math.log")
                 // .replace("e", "Math.E")
                 .replace("√", "Math.sqrt")
@@ -448,8 +472,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 console.log(currentValue);
 
+                if (display.value == "0") { currentValue = currentValue.slice(1) ;
+                    currentValue += value ;
+                    display.value = currentValue;
+                }
 
-                if (numberTextArray.includes(currentValue)) {
+
+                else if (numberTextArray.includes(currentValue)) {
 
                     currentValue += " X " + "e";
                     display.value = currentValue;
@@ -501,18 +530,32 @@ document.addEventListener("DOMContentLoaded", function () {
             else if (value == "√") {
 
                 console.log(currentValue);
+              
+                if (display.value == "0") { currentValue = currentValue.slice(1) ;
+                    currentValue += value + "(";
+                    display.value = currentValue;
+                }
+
+                // if (numberTextArray.includes(currentValue.slice(0,-1))) {
 
 
-                if (numberTextArray.includes(currentValue.slice(0,-1))) {
+                //     console.log("I am here");
+                  
+                //     currentValue += " X " + value +"(";
+                //     display.value = currentValue;
 
 
-                    console.log("I am here");
-                    currentValue += " X " + value;
+                // }
+                 else {
+                   
+                    currentValue += " X " + value + "(";
                     display.value = currentValue;
 
-
-                }
+                 }
               }
+
+
+
 
               else if (value == "y√x") {
 
@@ -706,7 +749,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     prevValue2 = currentValue;
                     display2.value = prevValue2 + "=";
-                    console.log(mode)
+                    console.log(mode);
                     evaluateResult();
 
                     if (prevValue2 && mOperatorTextArray.includes(value)) {
@@ -735,10 +778,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
-            else if (value == "Fx" || value == "123") {
-
-                value = currentValue;
-            }
+           
 
 
             else if (prevValue2.includes("Ans") && numberTextArray.includes(value) || prevValue2.includes("Ans") && S_buttonTextArray.includes(value)) {
