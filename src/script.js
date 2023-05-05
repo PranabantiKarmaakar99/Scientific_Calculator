@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function evaluateResult() {
 
 
-        if (mode === "deg" && currentValue.length >= 6 ) {
+        if (mode === "deg" && currentValue.length >= 6 && currentValue.includes("e") ) {
 
 
             const [func2, secondValue] = currentValue.split("(");
@@ -309,7 +309,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .replace("cos", "Math.cos")
                 .replace("tan", "Math.tan")
                 .replace("π", "Math.PI")
-                .replace("ln", "Math.log")
+                // .replace("ln", "Math.log")
                 // .replace("e", "Math.E")
                 .replace("√", "Math.sqrt")
                 .replace("log", "Math.log10")
@@ -418,9 +418,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
             else if (value == "sin-1") {
 
+                if (display.value == "0") { currentValue = currentValue.slice(1) ;
+                    
+                }
+
+                currentValue += "arcSin(";
+                display.value = currentValue;
 
 
-                currentValue = "arcSin";
+                // console.log(currentValue);
+
+
+
+            }
+
+            else if (value == "sin") {
+
+
+                if (display.value == "0") { currentValue = currentValue.slice(1) ;
+                   
+                }
+                currentValue += "sin(";
+                display.value = currentValue;
+
+
+                // console.log(currentValue);
+
+
+
+            }
+            else if (value == "cos") {
+
+
+                if (display.value == "0") { currentValue = currentValue.slice(1) ;
+                   
+                }
+                currentValue += "cos(";
+                display.value = currentValue;
+
+
+                // console.log(currentValue);
+
+
+
+            }
+            else if (value == "tan") {
+
+
+                if (display.value == "0") { currentValue = currentValue.slice(1) ;
+                
+                }
+                currentValue += "tan(";
                 display.value = currentValue;
 
 
@@ -430,13 +478,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
             else if (value == "tan-1") {
-                currentValue = "arcTan";
+
+                if (display.value == "0") { currentValue = currentValue.slice(1) ;
+                 
+                }
+                currentValue += "arcTan(";
                 display.value = currentValue;
 
             }
 
             else if (value == "cos-1") {
-                currentValue = "arcCos";
+                if (display.value == "0") { currentValue = currentValue.slice(1) ;
+                 
+                }
+                currentValue += "arcCos(";
+                display.value = currentValue;
+
+            }
+
+            else if (value == "ln") {
+
+                if (display.value == "0") { currentValue = currentValue.slice(1) ;
+                 
+                }
+                currentValue += "ln(";
+                display.value = currentValue;
+
+            }
+
+            else if (value == "log") {
+                if (display.value == "0") { currentValue = currentValue.slice(1) ;
+                 
+                }
+                currentValue += "log(";
                 display.value = currentValue;
 
             }
@@ -714,6 +788,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 }
 
+                else if (currentValue.includes("ln")) {
+
+                    // console.log(currentValue);
+                    console.log("I am here 7");
+
+                    currentValue = currentValue.replace("ln", "Math.log");
+                    console.log(currentValue);
+                    let result=eval(currentValue);
+
+                    // display.value = currentValue;
+                    currentValue = result.toString();
+                    display.value = currentValue;
+
+                }
+
                 else if (currentValue.includes("root")) {
 
 
@@ -754,7 +843,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     if (prevValue2 && mOperatorTextArray.includes(value)) {
 
-                        console.log("I am here ok")
+                        console.log("I am here ok45")
                         // prevValue2 = currentValue;
                         // display2.value = "Ans = " + prevValue2;
                         prevValue2 = currentValue;
@@ -781,19 +870,141 @@ document.addEventListener("DOMContentLoaded", function () {
            
 
 
-            else if (prevValue2.includes("Ans") && numberTextArray.includes(value) || prevValue2.includes("Ans") && S_buttonTextArray.includes(value)) {
+            // else if (prevValue2) {
 
+            //    if (   // prevValue2.includes("Ans") && numberTextArray.includes(value) 
+            //     prevValue2.includes("Ans") && S_buttonTextArray.includes(value)
+            //     || prevValue2.includes("Ans") && mOperatorTextArray.includes(value)) {
+   
+   
+            //        console.log("I am here")
+   
+            //        if (display.value == "0") { currentValue = currentValue.slice(1); }
+   
+            //        currentValue += value;
+            //        display.value = currentValue;
+            //    }
+            //    else if (prevValue2.includes("Ans") && !S_buttonTextArray.includes(prevValue2) && numberTextArray.includes(value) ) {
+   
+            //        console.log("I am here ok")
+            //        prevValue2 = "Ans = " + currentValue;
+            //        display2.value = prevValue2;
+   
+            //        currentValue = value;
+            //        display.value = currentValue;
+   
+   
+            //    }
+   
+            //    else if (!prevValue2.includes("Ans") && currentValue.includes(")")  && mOperatorTextArray.includes(value)
+            //    || !prevValue2.includes("Ans") && currentValue.includes(")") &&  S_buttonTextArray.includes(value) ) {
+   
+                
+   
+            //        console.log("I am here ok ok")
+            //        prevValue2 = "Ans = " + currentValue;
+            //        display2.value = prevValue2;
+   
+            //        currentValue += value;
+            //        display.value = currentValue;
+   
+   
+            //    }
+   
+            //    else if ( !prevValue2.includes("Ans") && numberTextArray.includes(value) || !prevValue2.includes("Ans") && S_buttonTextArray.includes(value)) {
+   
+            //        if (display.value == "0") { currentValue = currentValue.slice(1); }
+   
+                 
+   
+            //        console.log(prevValue2)
+   
+                    
+   
+            //        console.log("I am here ok ok ok")
+   
+            //        prevValue2 = "Ans=" + currentValue;
+   
+            //        display2.value = prevValue2;
+   
+            //        // prevValue2 = currentValue;
+            //        // display2.value = "Ans = " + prevValue2;
+   
+            //        currentValue += value;
+   
+            //        display.value = currentValue;
+   
+   
+   
+   
+   
+   
+   
+   
+   
+            //    }
+   
+           
+            
+            
+            
+            // }
 
-                // console.log("I am here")
+            // else if (prevValue2 && mOperatorTextArray.includes(value)||prevValue2 && numberTextArray.includes(value) || prevValue2 && S_buttonTextArray.includes(value)  ) {
 
-                if (display.value == "0") { currentValue = currentValue.slice(1); }
+            //     console.log("Ans is included")
+            //     prevValue2 = "Ans = " + currentValue;
+            //     display2.value = prevValue2;
+
+            //     currentValue += value;
+            //     display.value = currentValue;
+
+            // }
+
+             else if (prevValue2 && mOperatorTextArray.includes(value) 
+             || prevValue2 && S_buttonTextArray.includes(value)
+            //  || prevValue2 && numberTextArray.includes(value) && prevValue2.includes("Ans") 
+             
+             ) {
+
+                console.log("Ans is included")
+                prevValue2 = "Ans = " + currentValue;
+                display2.value = prevValue2;
 
                 currentValue += value;
                 display.value = currentValue;
-            }
-            else if (prevValue2 && mOperatorTextArray.includes(value)) {
 
-                // console.log("I am here ok")
+            }
+
+      
+
+            // else if (prevValue2.includes("Ans") && !S_buttonTextArray.includes(prevValue2) && numberTextArray.includes(value) ) {
+   
+            //     console.log("I am here ok2")
+            //     prevValue2 = "Ans = " + currentValue;
+            //     display2.value = prevValue2;
+
+            //     currentValue = value;
+            //     display.value = currentValue;
+
+
+            // }
+
+            else if (prevValue2  && !mOperatorTextArray.includes(currentValue.slice(-1)) && numberTextArray.includes(value) ) {
+   
+                console.log("I am here ok")
+                prevValue2 = "Ans = " + currentValue;
+                display2.value = prevValue2;
+
+                currentValue = value;
+                display.value = currentValue;
+
+
+            }
+
+            else if (prevValue2  && mOperatorTextArray.includes(currentValue.slice(-1)) && S_buttonTextArray.includes(value) ) {
+   
+                console.log("I am here ok")
                 prevValue2 = "Ans = " + currentValue;
                 display2.value = prevValue2;
 
@@ -803,52 +1014,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
 
-            else if (prevValue2 && !prevValue2.includes("Ans") && numberTextArray.includes(value) || prevValue2 && !prevValue2.includes("Ans") && S_buttonTextArray.includes(value)) {
-
-                if (display.value == "0") { currentValue = currentValue.slice(1); }
-
-                console.log(prevValue2)
-
-
-
-
-
-                prevValue2 = "Ans=" + currentValue;
-
-                display2.value = prevValue2;
-
-                prevValue2 = currentValue;
-                display2.value = "Ans = " + prevValue2;
-
-                currentValue = value;
-
-                display.value = currentValue;
-
-
-
-
-
-
-
-
-
-            }
-
             else {
 
-
+                
+               if (mOperatorTextArray.includes(currentValue.slice(-1)) &&   S_buttonTextArray.includes(value)) {currentValue += value;display.value = currentValue;}
+   
+                
+                if (display.value == "0") { currentValue = currentValue.slice(1); };
+                // if(currentValue.includes("(")&& !currentValue.includes(")")) {currentValue += value +")";display.value=currentValue}
                 currentValue += value;
-                if (display.value == "0") { currentValue = currentValue.slice(1); }
-
-
-
-
-
+                console.log("I am here ok ok ok ok")
                 display.value = currentValue;
 
 
             }
 
+            
+            
+        
 
 
 
