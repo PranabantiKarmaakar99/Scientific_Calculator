@@ -144,14 +144,14 @@ document.addEventListener("DOMContentLoaded", function () {
       
         if (mode === "deg") {
           
-          document.getElementById("Rad").style.color = "white";
-          document.getElementById("Deg").style.color = "grey";
+          document.getElementById("Rad").style.color = "grey";
+          document.getElementById("Deg").style.color = "black";
           mode = "rad";
           
         } else {
             
-          document.getElementById("Rad").style.color = "grey";
-          document.getElementById("Deg").style.color = "white";
+          document.getElementById("Rad").style.color = "black";
+          document.getElementById("Deg").style.color = "grey";
           console.log(Deg.innerText);
           display.value = Deg.innerText;
           mode = "deg";
@@ -358,9 +358,10 @@ document.addEventListener("DOMContentLoaded", function () {
            if (value == "CE") {
 
 
+                if (currentValue=="0") { display.value = currentValue}
 
-                currentValue = currentValue.slice(0, -1);
-                display.value = currentValue;
+                else {currentValue = currentValue.slice(0, -1);
+                display.value = currentValue;}
 
 
 
@@ -544,10 +545,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             else if (value == "e") {
 
+               
+
                 console.log(currentValue);
 
-                if (display.value == "0") { currentValue = currentValue.slice(1) ;
-                    currentValue += value ;
+                if (currentValue == "0") 
+                
+                { currentValue = currentValue.slice(1) ;
+                    currentValue = value ;
                     display.value = currentValue;
                 }
 
@@ -558,6 +563,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     display.value = currentValue;
 
 
+                }
+                else { 
+                    currentValue = value ;
+                    display.value = currentValue;
                 }
 
 
@@ -571,6 +580,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 console.log("I am here 1");
+                if (numberTextArray.includes(value) && mOperatorTextArray.includes(currentValue.slice(-1))) 
+                
+                {currentValue+=value;
+                display.value = currentValue;}
+
                 if ( currentValue.includes("^")) {
 
                     console.log("I am here 5");

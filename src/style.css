@@ -52,5 +52,13 @@
 
 
 
-    
+    .btn-secondary{
+      background-color: #dadce0;
+      color:black
+    }
+
+    .btn-secondary:hover{
+      background-color: #f2f4f8;
+      color:black
+    }
     
